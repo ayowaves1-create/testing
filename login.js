@@ -30,7 +30,7 @@ document.getElementById("loginForm").addEventListener("submit", function(e) {
 
 function logout() {
     localStorage.removeItem("loggedIn");
-    window.location.href = "login.html";
+    window.location.href = "index.html";
 }
 
 function showRegister() {
