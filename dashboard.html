@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> KICK IQ</title><link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>⚽ Welcome to KICK - IQ FOOTBALL</h1>
+         <!-- KickIQ Football App Logo -->
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Circle -->
+  <circle cx="100" cy="100" r="95" fill="#1E90FF" stroke="#ffffff" stroke-width="5"/>
+  
+  <!-- Football Shape -->
+  <circle cx="100" cy="100" r="50" fill="#ffffff" stroke="#000000" stroke-width="3"/>
+  <polygon points="100,70 115,85 110,105 90,105 85,85" fill="#000000"/>
+  <polygon points="100,130 115,115 135,120 130,140 110,145" fill="#000000"/>
+  <polygon points="70,100 85,85 80,65 60,70 55,90" fill="#000000"/>
+  <polygon points="130,100 145,85 140,65 160,70 165,90" fill="#000000"/>
+   
+  <!-- App Name -->
+  <text x="100" y="185" font-size="22" font-family="Arial Black, Arial" fill="#ffffff" text-anchor="middle">
+    KickIQ
+  </text>
+</svg>
+    </header>
+
+        <nav>
+        <ul class="navbar">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#matches">Matches</a></li> <!-- Scrolls to Matches -->
+            <li><a href="#teams">Teams</a></li>
+            <li><a href="#news">News</a></li> <!-- Scrolls to News -->
+            <li><a href="#logout" onclick="logout()">Logout</a></li>
+        </ul>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+<section id="home">
+
+     <section class="cards">
+        <div class="card 1">
+            <h2>Next Match</h2>
+            <p>Man city vs liverpool</p>
+            <p>Time: 18:00</p>
+            <a href="card.html"></a>
+        </div>
+        <div class="card 2">
+            <h2>Latest Score</h2>
+            <p>chealse 2 - 1 arsenal</p>
+        </div>
+        <div class="card 3">
+            <h2>Top Teams</h2>
+            <ul>
+                <li>manchester city</li>
+                <li>liverpool</li>
+                <li>arsenal</li>
+            </ul>
+        </div>
+    </section>
+
+    <h2>SELECT YOUR CLUB</h2>
+    <div id="home-list">
+        <p>pick your favourite club </p>
+        <div class="dropdown-container">
+    <div class="form-group">
+        <label for="english-club">English Club</label>
+        <select id="english-club" onchange="openClubLink(this.value)">
+            <option value="">Select</option>
+            <option value="https://www.arsenal.com">Arsenal</option>
+            <option value="https://www.mancity.com">Manchester City</option>
+            <option value="https://www.liverpoolfc.com">Liverpool</option>
+            <option value="https://www.nufc.co.uk">Newcastle United</option>
+            <option value="https://www.avfc.co.uk">Aston Villa</option>
+            <option value="https://www.chelseafc.com">Chelsea</option>
+            <option value="https://www.tottenhamhotspur.com">Tottenham Hotspur</option>
+            <option value="https://www.southamptonfc.com">Southampton</option>
+            <option value="https://www.leedsunited.com">Leeds United</option>
+            <option value="https://www.wolves.co.uk">Wolverhampton Wanderers</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="spanish-club">Spanish Club</label>
+        <select id="spanish-club" onchange="openClubLink(this.value)">
+            <option value="">Select</option>
+            <option value="https://www.fcbarcelona.com">FC Barcelona</option>
+            <option value="https://www.realmadrid.com">Real Madrid</option>
+            <option value="https://www.villarrealcf.es">Villarreal CF</option>
+            <option value="https://en.atleticodemadrid.com">Atlético Madrid</option>
+            <option value="https://www.getafecf.com">Getafe CF</option>
+            <option value="https://www.levanteud.com">Levante UD</option>
+            <option value="https://www.rcdmallorca.es">RCD Mallorca</option>
+            <option value="https://www.sevillafc.es">Sevilla FC</option>
+            <option value="https://www.realbetisbalompie.es">Real Betis</option>
+            <option value="https://www.realsociedad.eus">Real Sociedad</option>
+        </select>
+    </div>
+
+    <!-- French in the middle -->
+    <div class="form-group">
+        <label for="french-club">French Club</label>
+        <select id="french-club" onchange="openClubLink(this.value)">
+            <option value="">Select</option>
+            <option value="https://en.psg.fr">Paris Saint-Germain (PSG)</option>
+            <option value="https://www.om.fr">Olympique de Marseille</option>
+            <option value="https://www.ol.fr">Olympique Lyonnais</option>
+            <option value="https://www.asmonaco.com">AS Monaco</option>
+            <option value="https://www.losc.fr">Lille OSC</option>
+            <option value="https://www.staderennais.com">Stade Rennais</option>
+            <option value="https://www.ogcnice.com">OGC Nice</option>
+            <option value="https://www.mhscfoot.com">Montpellier HSC</option>
+            <option value="https://www.rclens.fr">RC Lens</option>
+            <option value="https://www.toulousefc.com">Toulouse FC</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="italian-club">Italian Club</label>
+        <select id="italian-club" onchange="openClubLink(this.value)">
+            <option value="">Select</option>
+            <option value="https://www.acmilan.com">AC Milan</option>
+            <option value="https://www.inter.it">Inter Milan</option>
+            <option value="https://www.juventus.com">Juventus</option>
+            <option value="https://www.asroma.com">AS Roma</option>
+            <option value="https://www.sscnapoli.it">Napoli</option>
+            <option value="https://www.sslazio.it">Lazio</option>
+            <option value="https://www.acffiorentina.com">Fiorentina</option>
+            <option value="https://www.atalanta.it">Atalanta</option>
+            <option value="https://www.torinofc.it">Torino</option>
+            <option value="https://www.sampdoria.it">Sampdoria</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label for="german-club">German Club</label>
+        <select id="german-club" onchange="openClubLink(this.value)">
+            <option value="">Select</option>
+            <option value="https://fcbayern.com">Bayern Munich</option>
+            <option value="https://www.bvb.de">Borussia Dortmund</option>
+            <option value="https://rbleipzig.com">RB Leipzig</option>
+            <option value="https://www.bayer04.de">Bayer Leverkusen</option>
+            <option value="https://www.eintracht.de">Eintracht Frankfurt</option>
+            <option value="https://www.vfl-wolfsburg.de">VfL Wolfsburg</option>
+            <option value="https://www.borussia.de">Borussia Mönchengladbach</option>
+            <option value="https://www.scfreiburg.com">SC Freiburg</option>
+            <option value="https://www.vfb.de">VfB Stuttgart</option>
+            <option value="https://www.fcaugsburg.de">FC Augsburg</option>
+        </select>
+    </div>
+</div>
+    </div>
+</section>
+
+<section id="matches">
+        <h2>Upcoming Matches</h2>
+       <div id="matches-list">
+        <p>Loading upcoming matches...</p>
+       </div>
+    </section>
+    
+    <section id="teams">
+        <h2>Teams</h2>
+      <div id="teams-list">
+        <p>Loading teams...</p>
+      </div>
+    </section>
+
+     <section id="news">
+        <h2>Football News</h2>
+        <div id="news-list">
+            <p>Loading latest football news...</p>
+        </div>
+    </section>
+
+    <!-- Floating Home Button -->
+<a href="#home" class="home-btn" id="homeBtn">🏠 Home</a>
+
+<!-- Floating Search Button -->
+<button class="search-toggle" id="toggleSearch">🔍</button>
+
+<!-- Popup Search Box -->
+<div class="player-search-popup" id="searchPopup">
+    <input type="text" id="playerSearchInput" placeholder="Search players...">
+    <button id="playerSearchBtn">Search</button>
+</div>
+
+<!-- Player Info Display -->
+<div id="playerInfo" class="player-info"></div>
+
+<script>
+function openClubLink(url) {
+    if (url) {
+        window.open(url, '_blank');
+    }
+}
+</script>
+
+    <!-- JavaScript -->
+    <script>
+        function openClubLink(url) {
+            if (url) {
+                window.open(url, '_blank');
+            }
+        }
+
+        const newsContainer = document.getElementById("news-list");
+
+        async function fetchFootballNews() {
+            try {
+                const response = await fetch(
+                    `https://newsapi.org/v2/everything?q=football&language=en&sortBy=publishedAt&pageSize=5&apiKey=YOUR_API_KEY_HERE`
+                );
+                const data = await response.json();
+
+                if (data.articles && data.articles.length > 0) {
+                    newsContainer.innerHTML = data.articles
+                        .map(article => `
+                            <div>
+                                <a href="${article.url}" target="_blank">${article.title}</a>
+                                <p>${article.source.name} - ${new Date(article.publishedAt).toLocaleString()}</p>
+                            </div>
+                        `)
+                        .join("");
+                } else {
+                    newsContainer.innerHTML = "<p>No football news found.</p>";
+                }
+            } catch (error) {
+                newsContainer.innerHTML = "<p>Error loading news.</p>";
+                console.error("Error fetching news:", error);
+            }
+        }
+
+        // Fetch news immediately and every 60 seconds
+        fetchFootballNews();
+        setInterval(fetchFootballNews, 60000);
+    </script>
+
+    <script>
+    // Container for matches
+    const matchesContainer = document.getElementById("matches-list");
+
+    // Function to fetch and display matches
+    async function fetchMatches() {
+        try {
+            // Premier League ID = 4328 (you can change to other leagues)
+            const response = await fetch(
+                "https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id=4328"
+            );
+            const data = await response.json();
+
+            if (data.events && data.events.length > 0) {
+                matchesContainer.innerHTML = data.events
+                    .slice(0, 5) // Show only next 5 matches
+                    .map(match => `
+                        <div style="margin-bottom:15px;">
+                            <strong>${match.strEvent}</strong><br>
+                            ${new Date(match.dateEvent).toLocaleDateString()} - ${match.strTime}
+                        </div>
+                    `)
+                    .join("");
+            } else {
+                matchesContainer.innerHTML = "<p>No upcoming matches found.</p>";
+            }
+        } catch (error) {
+            matchesContainer.innerHTML = "<p>Error loading matches.</p>";
+            console.error("Error fetching matches:", error);
+        }
+    }
+
+    // Fetch matches immediately and refresh every 60 seconds
+    fetchMatches();
+    setInterval(fetchMatches, 60000);
+</script>
+
+    <script>
+    const teamsContainer = document.getElementById("teams-container");
+
+    // League IDs from TheSportsDB
+    const leagues = [
+        { id: 4328, name: "Premier League" },
+        { id: 4335, name: "La Liga" },
+        { id: 4332, name: "Serie A" },
+        { id: 4331, name: "Bundesliga" },
+        { id: 4334, name: "Ligue 1" }
+    ];
+
+    async function fetchTeamsByLeague() {
+        teamsContainer.innerHTML = ""; // Clear before loading
+
+        for (const league of leagues) {
+            try {
+                const response = await fetch(
+                    `https://www.thesportsdb.com/api/v1/json/3/lookup_all_teams.php?id=${league.id}`
+                );
+                const data = await response.json();
+
+                if (data.teams && data.teams.length > 0) {
+                    // Create league section
+                    const leagueSection = document.createElement("div");
+                    leagueSection.classList.add("league-section");
+                    leagueSection.innerHTML = `<h3>${league.name}</h3>`;
+
+                    // Add team cards
+                    const teamsHTML = data.teams
+                        .map(team => `
+                            <div class="team-card">
+                                <img src="${team.strTeamBadge}" alt="${team.strTeam} Logo">
+                                <h4>${team.strTeam}</h4>
+                                <p>${team.strStadium}</p>
+                            </div>
+                        `)
+                        .join("");
+
+                    leagueSection.innerHTML += `<div class="team-list">${teamsHTML}</div>`;
+                    teamsContainer.appendChild(leagueSection);
+                }
+            } catch (error) {
+                console.error(`Error fetching ${league.name}:`, error);
+            }
+        }
+    }
+
+    // Fetch immediately and refresh every 60s minutes
+    fetchTeamsByLeague();
+    setInterval(fetchTeamsByLeague, 300000);
+</script>
+
+<script>
+// Fetch Matches (basic list)
+async function fetchMatchesList() {
+    const container = document.getElementById("matches-list");
+
+    try {
+        const res = await fetch("https://www.thesportsdb.com/api/v1/json/3/eventsnextleague.php?id=4328");
+        const data = await res.json();
+
+        if (data.events) {
+            localStorage.setItem("matches", JSON.stringify(data.events));
+
+            container.innerHTML = data.events.slice(0, 5).map(match => `
+                <div class="match-card" onclick="toggleMatchStats('${match.idEvent}', '${match.idHomeTeam}', '${match.idAwayTeam}')">
+                    <h3>${match.strEvent}</h3>
+                    <p>${new Date(match.dateEvent).toLocaleDateString()} ${match.strTime}</p>
+                    <div id="stats-${match.idEvent}" class="match-stats" style="display:none;">
+                        <p>Loading stats...</p>
+                    </div>
+                </div>
+            `).join("");
+        }
+    } catch {
+        const cached = localStorage.getItem("matches");
+        if (cached) {
+            const events = JSON.parse(cached);
+            container.innerHTML = events.slice(0, 5).map(match => `
+                <div class="match-card" onclick="toggleMatchStats('${match.idEvent}', '${match.idHomeTeam}', '${match.idAwayTeam}')">
+                    <h3>${match.strEvent}</h3>
+                    <p>${new Date(match.dateEvent).toLocaleDateString()} ${match.strTime}</p>
+                    <div id="stats-${match.idEvent}" class="match-stats" style="display:none;">
+                        <p>Offline: stats will load when online.</p>
+                    </div>
+                </div>
+            `).join("");
+        } else {
+            container.innerHTML = "<p>No matches available offline.</p>";
+        }
+    }
+}
+
+// Toggle stats display
+async function toggleMatchStats(matchId, homeId, awayId) {
+    const statsDiv = document.getElementById(`stats-${matchId}`);
+    if (statsDiv.style.display === "none") {
+        statsDiv.style.display = "block";
+        statsDiv.innerHTML = "<p>Loading stats...</p>";
+        const homeStats = await fetchTeamStats(homeId);
+        const awayStats = await fetchTeamStats(awayId);
+
+        statsDiv.innerHTML = `
+            <div class="teams-stats">
+                <div class="team">
+                    <img src="${homeStats.badge}" alt="${homeStats.name}">
+                    <h4>${homeStats.name}</h4>
+                    <p>Wins: ${homeStats.wins}</p>
+                    <p>Draws: ${homeStats.draws}</p>
+                    <p>Losses: ${homeStats.losses}</p>
+                    <p>Goals: ${homeStats.goals}</p>
+                </div>
+                <div class="team">
+                    <img src="${awayStats.badge}" alt="${awayStats.name}">
+                    <h4>${awayStats.name}</h4>
+                    <p>Wins: ${awayStats.wins}</p>
+                    <p>Draws: ${awayStats.draws}</p>
+                    <p>Losses: ${awayStats.losses}</p>
+                    <p>Goals: ${awayStats.goals}</p>
+                </div>
+            </div>
+        `;
+    } else {
+        statsDiv.style.display = "none";
+    }
+}
+
+// Fetch Team Stats
+async function fetchTeamStats(teamId) {
+    try {
+        const res = await fetch(`https://www.thesportsdb.com/api/v1/json/3/lookuptable.php?l=4328&s=2023-2024`);
+        const data = await res.json();
+        if (data.table) {
+            const team = data.table.find(t => t.teamid === teamId);
+            if (team) {
+                return {
+                    name: team.name,
+                    wins: team.intWin,
+                    draws: team.intDraw,
+                    losses: team.intLoss,
+                    goals: team.intGoalsFor,
+                    badge: team.strTeamBadge
+                };
+            }
+        }
+    } catch {
+        return { name: "Unknown", wins: "-", draws: "-", losses: "-", goals: "-", badge: "" };
+    }
+    return { name: "Unknown", wins: "-", draws: "-", losses: "-", goals: "-", badge: "" };
+}
+
+// Load matches on page load
+fetchMatchesList();
+</script>
+
+<script>
+// Scroll to Teams section
+document.getElementById("goToTeams").addEventListener("click", function() {
+    document.getElementById("teams").scrollIntoView({ behavior: "smooth" });
+});
+</script>
+
+<script>
+    const homeBtn = document.getElementById("homeBtn");
+
+    window.addEventListener("scroll", () => {
+        // Show button if scrolled more than 200px
+        if (window.scrollY > 200) {
+            homeBtn.classList.add("show");
+        } else {
+            homeBtn.classList.remove("show");
+        }
+    });
+</script>
+
+<script>
+    document.getElementById("playerSearchBtn").addEventListener("click", function() {
+        const query = document.getElementById("playerSearchInput").value.trim();
+        if (query) {
+            alert("Searching for player: " + query);
+            // TODO: Replace alert with your actual search function
+        }
+    });
+</script>
+
+<script>
+const API_KEY = "12f3c859bfcfe4342f14dcdcc9439f8b"; // Replace with your API key from api-football.com
+const API_URL = "https://v3.football.api-sports.io/players";
+
+const toggleBtn = document.getElementById("toggleSearch");
+const searchPopup = document.getElementById("searchPopup");
+const searchBtn = document.getElementById("playerSearchBtn");
+const searchInput = document.getElementById("playerSearchInput");
+const playerInfo = document.getElementById("playerInfo");
+
+// Toggle popup visibility
+toggleBtn.addEventListener("click", () => {
+    searchPopup.classList.toggle("show");
+});
+
+async function searchPlayer(name) {
+    try {
+        const response = await fetch(`${API_URL}?search=${encodeURIComponent(name)}&season=2023`, {
+            method: "GET",
+            headers: {
+                "x-apisports-key": API_KEY
+            }
+        });
+
+        const data = await response.json();
+
+        if (data.response && data.response.length > 0) {
+            const player = data.response[0].player;
+            const stats = data.response[0].statistics[0];
+
+            playerInfo.innerHTML = `
+                <img src="${player.photo}" alt="${player.name}">
+                <h3>${player.name}</h3>
+                <p><strong>Team:</strong> ${stats.team.name}</p>
+                <p><strong>Position:</strong> ${player.position}</p>
+                <p><strong>Nationality:</strong> ${player.nationality}</p>
+                <p><strong>Appearances:</strong> ${stats.games.appearences || 0}</p>
+                <p><strong>Goals:</strong> ${stats.goals.total || 0}</p>
+            `;
+            playerInfo.style.display = "block";
+        } else {
+            playerInfo.innerHTML = `<p>No player found.</p>`;
+            playerInfo.style.display = "block";
+        }
+    } catch (error) {
+        console.error("Error fetching player:", error);
+        playerInfo.innerHTML = `<p>Error fetching player data.</p>`;
+        playerInfo.style.display = "block";
+    }
+}
+
+// Search on button click
+searchBtn.addEventListener("click", () => {
+    const query = searchInput.value.trim();
+    if (query) {
+        searchPlayer(query);
+    }
+});
+
+// Search on Enter key
+searchInput.addEventListener("keyup", (e) => {
+    if (e.key === "Enter") {
+        const query = searchInput.value.trim();
+        if (query) {
+            searchPlayer(query);
+        }
+    }
+});
+</script>
+
+<script>
+async function searchPlayer(name) {
+    try {
+        const response = await fetch(`${API_URL}?search=${encodeURIComponent(name)}&season=2023`, {
+            method: "GET",
+            headers: {
+                "x-apisports-key": API_KEY,
+                "x-rapidapi-host": "v3.football.api-sports.io"
+            }
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const data = await response.json();
+        console.log(data); // Debug: See full API response in console
+
+        if (data.response && data.response.length > 0) {
+            const player = data.response[0].player;
+            const stats = data.response[0].statistics[0];
+
+            playerInfo.innerHTML = `
+                <img src="${player.photo}" alt="${player.name}">
+                <h3>${player.name}</h3>
+                <p><strong>Team:</strong> ${stats.team.name}</p>
+                <p><strong>Position:</strong> ${player.position}</p>
+                <p><strong>Nationality:</strong> ${player.nationality}</p>
+                <p><strong>Appearances:</strong> ${stats.games.appearences || 0}</p>
+                <p><strong>Goals:</strong> ${stats.goals.total || 0}</p>
+            `;
+            playerInfo.style.display = "block";
+        } else {
+            playerInfo.innerHTML = `<p>No player found. Try another name.</p>`;
+            playerInfo.style.display = "block";
+        }
+    } catch (error) {
+        console.error("Error fetching player:", error);
+        playerInfo.innerHTML = `<p>Error fetching player data. Check console.</p>`;
+        playerInfo.style.display = "block";
+    }
+}
+</script>
+
+<script>
+        function logout() {
+            if (confirm("Are you sure you want to log out?")) {
+                // Clear any stored session data
+                localStorage.clear();
+                sessionStorage.clear();
+
+                // OPTIONAL: Call backend logout API
+                fetch('/logout', { method: 'POST', credentials: 'include' })
+                    .then(response => {
+                        // Redirect to login page
+                        window.location.href = '/index.html';
+                    })
+                    .catch(error => {
+                        console.error('Logout error:', error);
+                        alert('Error logging out. Please try again.');
+                    });
+            }
+        }
+    </script> 
+
+</body>
+</html>

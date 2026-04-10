@@ -1,0 +1,129 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    width: 300px;
+    text-align: center;
+}
+
+.login-container h2 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 5px;
+    background: #2e2e4f;
+    color: white;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ffcc00;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #e6b800;
+}
+
+#error-msg {
+    color: red;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+.login p a {
+    color: #0046ad; /* Normal link color */
+    text-decoration: none; /* Remove underline if you want */
+     padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.loginr p a:visited {
+    color: #0046ad; /* Same as normal so it doesn't turn purple */
+}
+
+.login p a:hover {
+    color: #003080; /* Darker blue on hover */
+    text-decoration: underline; /* Optional hover effect */
+}
+
+.login p a:active {
+    color: #002060; /* Even darker when clicked */
+}
+
+.login-register{
+    font-size: .9em;
+    color: #ffcc00;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: #ffcc00;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover{
+    text-decoration: underline;
+}
+
+/* Container for the link */
+.toggle-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    font-family: Arial, sans-serif;
+}
+
+/* Style for the link itself */
+.toggle-link a {
+    color: #0046ad; /* Blue color */
+    text-decoration: none; /* Remove underline */
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+/* Prevent purple visited color */
+.toggle-link a:visited {
+    color: #0046ad;
+}
+
+/* Hover effect */
+.toggle-link a:hover {
+    color: #003080; /* Darker blue on hover */
+    text-decoration: underline;
+}
+
+/* Active (when clicked) */
+.toggle-link a:active {
+    color: #002060;
+}
