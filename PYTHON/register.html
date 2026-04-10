@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title><link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <!-- Register Form -->
+    <div class="login-container" id="registerForm">
+        <h2>Register</h2>
+        <input type="text" id="regUsername" placeholder="Choose Username" required>
+        <input type="password" id="regPassword" placeholder="Choose Password" required>
+        <button type="button" onclick="registerUser()">Register</button>
+        <div class="toggle-link" onclick="showLogin()">Already have an account? Login</div>
+    </div>
+
+<script>
+        function showSuccessAndRedirect(message, redirectUrl) {
+    // Create a div for the success message
+    const successDiv = document.createElement("div");
+    successDiv.textContent = message;
+    successDiv.style.position = "fixed";
+    successDiv.style.top = "20px";
+    successDiv.style.right = "20px";
+    successDiv.style.backgroundColor = "#4CAF50";
+    successDiv.style.color = "white";
+    successDiv.style.padding = "12px 20px";
+    successDiv.style.borderRadius = "5px";
+    successDiv.style.boxShadow = "0 2px 6px rgba(0,0,0,0.2)";
+    successDiv.style.fontSize = "16px";
+    successDiv.style.zIndex = "9999";
+    successDiv.style.opacity = "0";
+    successDiv.style.transition = "opacity 0.5s ease";
+
+    // Add to the page
+    document.body.appendChild(successDiv);
+
+    // Fade in
+    setTimeout(() => {
+        successDiv.style.opacity = "1";
+    }, 50);
+
+    // Remove after 2 seconds and redirect
+    setTimeout(() => {
+        successDiv.style.opacity = "0";
+        setTimeout(() => {
+            successDiv.remove();
+            window.location.href = redirectUrl; // Redirect to login page
+        }, 500);
+    }, 2000);
+}
+
+function registerUser() {
+    const username = document.getElementById("regUsername").value.trim();
+    const password = document.getElementById("regPassword").value.trim();
+
+    if (!username || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.some(user => user.username.toLowerCase() === username.toLowerCase())) {
+        alert("Username already taken. Please choose another.");
+        return;
+    }
+
+    users.push({ username, password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Show success and redirect to login.html
+    showSuccessAndRedirect("✅ Account registered successfully!", "login.html");
+}
+</script>
+</body>
+</html>

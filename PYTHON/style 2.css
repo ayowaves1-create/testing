@@ -1,0 +1,120 @@
+/* style.css */
+
+body{
+    font-family: Arial, sans-serif;
+    background-color:  darkblue;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0px;
+}
+
+h1 {
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    background-color: blue;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+input[type="text"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid blue;
+}
+
+input[type="password"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid darkblue;
+}
+
+
+input[type="Gmail"] {
+    padding: 10px;
+    width: 250px;
+    border-radius: 8px;
+    border: 1px solid darkblue;
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button a {
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: none;
+    background-color: darkblue;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.form-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 300px;
+            display: none; /* Hidden by default */
+        }
+
+        .form-container.active {
+            display: block; /* Show when active */
+        }
+
+        .form-container h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .form-container button {
+            width: 100%;
+            padding: 10px;
+            background-color: #0046ad;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .form-container button:hover {
+            background-color: #003080;
+        }
+
+        .toggle-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #0046ad;
+            cursor: pointer;
+        }
+    
