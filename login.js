@@ -181,3 +181,97 @@ function loginUser() {
         alert("Invalid username or password.");
     }
 }
+
+// --- REGISTER USER ---
+function registerUser() {
+    const username = document.getElementById("regUsername").value.trim();
+    const password = document.getElementById("regPassword").value.trim();
+
+    // Basic validation
+    if (!username || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+    if (password.length < 6) {
+        alert("Password must be at least 6 characters.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+
+    if (users.some(user => user.username.toLowerCase() === username.toLowerCase())) {
+        alert("Username already taken. Please choose another.");
+        return;
+    }
+
+    // Hash password before saving
+    const hashedPassword = CryptoJS.SHA256(password).toString();
+
+    users.push({ username, password: hashedPassword });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    alert("Registration successful! You can now log in.");
+    showLogin();
+}
+
+// --- LOGIN USER ---
+function loginUser() {
+    const username = document.getElementById("loginUsername").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+
+    if (!username || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const hashedPassword = CryptoJS.SHA256(password).toString();
+
+    const validUser = users.find(user => 
+        user.username.toLowerCase() === username.toLowerCase() && user.password === hashedPassword
+    );
+
+    if (validUser) {
+        alert("Login successful! Welcome " + username);
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", username);
+
+        // Save login time + session duration (30 minutes)
+        localStorage.setItem("loginTime", Date.now());
+        localStorage.setItem("sessionDuration", 90 * 60 * 1000);
+
+        window.location.href = "dashboard.html";
+    } else {
+        alert("Invalid username or password.");
+    }
+}
+
+// --- SESSION CHECK (run on dashboard.html) ---
+function checkSession() {
+    const loggedIn = localStorage.getItem("loggedIn");
+    const loginTime = localStorage.getItem("loginTime");
+    const sessionDuration = localStorage.getItem("sessionDuration");
+
+    if (!loggedIn || !loginTime || !sessionDuration) {
+        logout();
+        return;
+    }
+
+    const currentTime = Date.now();
+    if (currentTime - loginTime > sessionDuration) {
+        alert("Session expired. Please log in again.");
+        logout();
+    }
+}
+
+// --- LOGOUT ---
+function logout() {
+    localStorage.removeItem("loggedIn");
+    localStorage.removeItem("currentUser");
+    localStorage.removeItem("loginTime");
+    localStorage.removeItem("sessionDuration");
+    window.location.href = "index.html";
+}
+
+// Run session check automatically when dashboard loads
+window.onload = checkSession;
