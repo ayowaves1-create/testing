@@ -238,7 +238,7 @@ function loginUser() {
 
         // Save login time + session duration (30 minutes)
         localStorage.setItem("loginTime", Date.now());
-        localStorage.setItem("sessionDuration", 90 * 60 * 1000);
+        localStorage.setItem("sessionDuration", 30 * 60 * 1000);
 
         window.location.href = "dashboard.html";
     } else {
@@ -275,3 +275,35 @@ function logout() {
 
 // Run session check automatically when dashboard loads
 window.onload = checkSession;
+
+function loginUser() {
+    const username = document.getElementById("loginUsername").value.trim();
+    const password = document.getElementById("loginPassword").value.trim();
+
+    if (!username || !password) {
+        alert("Please fill in all fields.");
+        return;
+    }
+
+    let users = JSON.parse(localStorage.getItem("users")) || [];
+    const hashedPassword = CryptoJS.SHA256(password).toString();
+
+    const validUser = users.find(user => 
+        user.username.toLowerCase() === username.toLowerCase() && user.password === hashedPassword
+    );
+
+    if (validUser) {
+        alert("Login successful! Welcome " + username);
+        localStorage.setItem("loggedIn", "true");
+        localStorage.setItem("currentUser", username);
+
+        // Save login time + session duration (30 minutes)
+        localStorage.setItem("loginTime", Date.now());
+        localStorage.setItem("sessionDuration", 30 * 60 * 1000);
+
+        // Redirect to your chosen page
+        window.location.href = "dashboard.html"; 
+    } else {
+        alert("Invalid username or password.");
+    }
+}
